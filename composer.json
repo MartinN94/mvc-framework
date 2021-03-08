@@ -1,0 +1,19 @@
+{
+    "name": "martin/mvc-framework",
+    "description": "PHP-MVC framework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Martin Nikolov",
+            "email": "nikolov.m@hotmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "App\\Libraries\\": "app/libraries/"
+        }
+    }
+}

@@ -6,6 +6,7 @@ foreach ($data['users'] as $user) {
 }
 */
 
-var_dump($data);
+echo "Autoloader ok";
+
 ?>
 

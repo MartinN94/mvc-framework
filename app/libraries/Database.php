@@ -1,4 +1,7 @@
 <?php
+    namespace App\Libraries;
+    use PDO, PDOException;
+
     class Database {
         private $dbHost = DB_HOST;
         private $dbUser = DB_USER;

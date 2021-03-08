@@ -1,14 +1,16 @@
 <?php
-class Home extends Controller {
-    public function __construct() {
-        //$this->userModel = $this->model('User');
-    }
+    use App\Libraries\Controller;
 
-    public function index() {
-        $data = [
-            'title' => 'Home page'
-        ];
+    class Home extends Controller {
+        public function __construct() {
+            //$this->userModel = $this->model('User');
+        }
 
-        $this->view('index', $data);
+        public function index() {
+            $data = [
+                'title' => 'Home page'
+            ];
+
+            $this->view('index', $data);
+        }
     }
-}

@@ -1,4 +1,5 @@
 <?php
+    namespace App\Libraries;
     //Load the model and the view
     class Controller {
         public function model($model) {

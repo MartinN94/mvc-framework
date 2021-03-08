@@ -1,4 +1,6 @@
 <?php
+    use App\Libraries\Database;
+
     class User {
         private $db;
 
