@@ -1,21 +1,12 @@
 <?php
+
     use App\Libraries\Controller;
+    use App\Models\User;
 
-    class Home extends Controller {
-        public function __construct() {
-            $this->userModel = $this->model('User');
-        }
-
-        public function index() {
-            $users = $this->userModel->getUsers();
-            
-            $data = [
-                'title' => 'Home page',
-                'users' => $users
-            ];
-
-            $data = json_encode($data);
-
-            $this->view('index', $data);
+    class Home extends Controller
+    {
+        public function index()
+        {
+            $this->view('home/index');
         }
     }

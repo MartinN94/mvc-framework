@@ -1,9 +1,11 @@
 <?php
     namespace App\Libraries;
-    
-    use PDO, PDOException;
 
-    class Database {
+    use PDO;
+    use PDOException;
+
+    class Database
+    {
         private $dbHost = DB_HOST;
         private $dbUser = DB_USER;
         private $dbName = DB_NAME;
@@ -14,7 +16,8 @@
         private $dbHandler;
         private $error;
 
-        public function __construct() {
+        public function __construct()
+        {
             $conn = 'mysql:host='. $this->dbHost . ';port=' . $this->dbPort . ';dbname='. $this->dbName .';';
             $options = array(
                 PDO::ATTR_PERSISTENT => true,
@@ -22,7 +25,6 @@
             );
             try {
                 $this->dbHandler = new PDO($conn, $this->dbUser, $this->dbPass, $options);
-
             } catch (PDOException $e) {
                 $this->error = $e->getMessage();
                 echo $this->error;
@@ -30,12 +32,14 @@
         }
 
         //Allows us to write queries
-        public function query($sql) {
+        public function query($sql)
+        {
             $this->statement = $this->dbHandler->prepare($sql);
         }
 
         //Bind values
-        public function bind($parameter, $value, $type = null) {
+        public function bind($parameter, $value, $type = null)
+        {
             switch (is_null($type)) {
                 case is_int($value):
                     $type = PDO::PARAM_INT;
@@ -53,24 +57,28 @@
         }
 
         //Execute the prepared statement
-        public function execute() {
+        public function execute()
+        {
             return $this->statement->execute();
         }
 
         //Return an array
-        public function resultSet() {
+        public function resultSet()
+        {
             $this->execute();
             return $this->statement->fetchAll(PDO::FETCH_OBJ);
         }
 
         //Return a specific row as an object
-        public function single() {
+        public function single()
+        {
             $this->execute();
             return $this->statement->fetch(PDO::FETCH_OBJ);
         }
 
         //Get's the row count
-        public function rowCount() {
+        public function rowCount()
+        {
             return $this->statement->rowCount();
         }
     }

@@ -14,7 +14,7 @@
         "psr-4": {
             "App\\": "app/",
             "App\\Libraries\\": "app/libraries/",
-            "App\\Config\\": "app/config/"
+            "App\\Models\\": "app/models/"
         }
     }
 }

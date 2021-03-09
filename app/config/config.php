@@ -16,4 +16,3 @@
 
     //Sitename
     define('SITENAME', 'MVC Framework');
-?>
