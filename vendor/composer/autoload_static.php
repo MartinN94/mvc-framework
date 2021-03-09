@@ -10,6 +10,7 @@ class ComposerStaticInit7bf7a22bc5b99ef8f273def8a691f118
         'A' => 
         array (
             'App\\Libraries\\' => 14,
+            'App\\Config\\' => 11,
             'App\\' => 4,
         ),
     );
@@ -18,6 +19,10 @@ class ComposerStaticInit7bf7a22bc5b99ef8f273def8a691f118
         'App\\Libraries\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app/libraries',
+        ),
+        'App\\Config\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/config',
         ),
         'App\\' => 
         array (
