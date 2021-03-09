@@ -5,7 +5,6 @@ foreach ($data['users'] as $user) {
     echo "<br>";
 }
 */
-var_dump($data);
 ?>
 <!DOCTYPE html>
 <html lang="en">
