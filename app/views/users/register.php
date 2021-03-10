@@ -34,6 +34,9 @@
             <p class="options">
                 Already have an account? <a href="/users/login">Sign In!</a>
             </p>
+            <p class="options">
+                <a href="/home/index">Return to homepage</a>
+            </p>
         </form>
     </div>
 </div>

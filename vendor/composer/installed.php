@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'efa4dfba57779ea58f6c046ca80354b091ac3722',
+    'reference' => 'f42c74bad25a8f147e790662531ae7ccb99c6603',
     'name' => 'martin/mvc-framework',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'efa4dfba57779ea58f6c046ca80354b091ac3722',
+      'reference' => 'f42c74bad25a8f147e790662531ae7ccb99c6603',
     ),
   ),
 );

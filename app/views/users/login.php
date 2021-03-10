@@ -15,7 +15,7 @@
         <form action="/users/login" method="POST">
             <input type="email" placeholder="Email" name="email">
             <span class="invalidFeedback">
-                <?php echo $data['useremailError'] ?>
+                <?php echo $data['emailError'] ?>
             </span>
             <input type="password" placeholder="Password" name="password">
             <span class="invalidFeedback">
@@ -26,6 +26,9 @@
             <p class="options">
                 Not registered? <a href="/users/register">Create
                     an account!</a>
+            </p>
+            <p class="options">
+                <a href="/home/index">Return to homepage</a>
             </p>
         </form>
     </div>

@@ -1,10 +1,16 @@
 <nav class="top-nav">
     <ul>
-        <li class="btn-login">
-            <a href="/users/login">Login</a>
-        </li>
-        <li class="btn-logout">
+        <li>
+            <?php if (!isLogged()) : ?>
             <a href="/users/register">Register</a>
+            <?php endif; ?>
+        </li>
+        <li class="btn-login">
+            <?php if (isLogged()) : ?>
+            <a href="/users/logout">Logout</a>
+            <?php else : ?>
+            <a href="/users/login">Login</a>
+            <?php endif; ?>
         </li>
     </ul>
 </nav>
