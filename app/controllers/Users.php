@@ -197,7 +197,7 @@
 
                     if (!empty($_POST['keyword']) || !empty($_POST['type'])) {
                         $users = $this->userModel->search($_POST['keyword'], $_POST['type']);
-                        
+        
                         $subtypes = [];
                         foreach ($users as $key => $value) {
                             $subtypes[] = join(',', [$value['subtype']]);

@@ -75,10 +75,13 @@
 
         public function search($keyword, $type)
         {
-            $this->db->query('SELECT name, email, type, subtype FROM users WHERE type = :type AND name LIKE :keyword OR email LIKE :keyword');
+            $name = $keyword;
+            $this->db->query('SELECT name, email, type, subtype FROM users WHERE type = :type OR name = :name OR email LIKE :email');
 
-            $this->db->bind(':keyword', '%'.$keyword.'%');
+            $this->db->bind(':name', $name);
+            $this->db->bind(':email', '%'. $keyword. '%');
             $this->db->bind(':type', '%'.$type.'%');
+
             $result = $this->db->resultSet();
             return $result;
         }
