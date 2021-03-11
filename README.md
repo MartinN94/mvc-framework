@@ -12,7 +12,7 @@
  - Enter your credentials
  - Vendor is uploaded because composer is used only for autoloading
 
-## NOTE: The app is developed in LEMP Stack enviromet with pre-configured Laravel Valet. I've added .htacces files for Apache, but they are not tested yet. In other enviroments you might have to use URLROOT form config files in hrefs and in form actions
+## NOTE: The app is developed in LEMP Stack enviromet with pre-configured Laravel Valet. I've added .htacces files for Apache, but they are not tested yet. In other enviroments you might have to use URLROOT from config files in hrefs and in form actions
 
 
 # Challenge approach
