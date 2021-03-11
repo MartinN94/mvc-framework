@@ -45,7 +45,11 @@
             $this->params = $url ? array_values($url) : [];
 
             // Call a callback with array of params
-            call_user_func_array(array($this->currentController, $this->currentMethod), array( $this->params));
+            if ($this->currentController && method_exists($this->currentController, $this->currentMethod)) {
+                call_user_func_array(array($this->currentController, $this->currentMethod), array( $this->params));
+            } else {
+                echo '<img style="margin: 0 auto; display:block;" src="/public/img/404.png">';
+            }
         }
 
         public function getUrl()

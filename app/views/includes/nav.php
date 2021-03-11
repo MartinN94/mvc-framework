@@ -5,6 +5,11 @@
             <a href="/users/register">Register</a>
             <?php endif; ?>
         </li>
+        <li>
+            <?php if (isLogged()) : ?>
+            <a href="/home/index">Home</a>
+            <?php endif; ?>
+        </li>
         <li class="btn-login">
             <?php if (isLogged()) : ?>
             <a href="/users/logout">Logout</a>

@@ -11,15 +11,18 @@
 <div class="container-login">
     <div class="wrapper-login">
         <h2>Sign In</h2>
-
+        <?php echo $data['success']; ?>
+        <span class="invalidFeedback">
+            <?php echo $data['message']; ?>
+        </span>
         <form action="/users/login" method="POST">
             <input type="email" placeholder="Email" name="email">
             <span class="invalidFeedback">
-                <?php echo $data['emailError'] ?>
+                <?php echo $data['emailError']; ?>
             </span>
             <input type="password" placeholder="Password" name="password">
             <span class="invalidFeedback">
-                <?php echo $data['passwordError'] ?>
+                <?php echo $data['passwordError']; ?>
             </span>
             <button type="submit" id="submit" value="submit">Submit</button>
 
