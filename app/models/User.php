@@ -22,7 +22,7 @@
             $this->db->bind(':email', $email);
 
             //Check if email in alredy registered
-            if ($this->db->rowCount() > 0) {
+            if ($this->db->rowCount > 0) {
                 return true;
             } else {
                 return false;
