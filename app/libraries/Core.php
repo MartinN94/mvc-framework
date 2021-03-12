@@ -18,12 +18,17 @@
             unset($url[0]);
 
             // Look in BLL for first value
-            if (file_exists('../app/controllers/' . ucwords($url[1]). '.php')) {
+            if (!empty($url[1]) && file_exists('../app/controllers/' . ucwords($url[1]). '.php')) {
                 // If exists, set as controller
                 $this->currentController = ucwords($url[1]);
                 // Unset 0 Index
                 unset($url[1]);
+            } elseif (isset($url[1]) && !file_exists('../app/controllers/' . ucwords($url[1]). '.php')) {
+                $this->currentController = '';
+                echo '<img style="margin: 0 auto; display:block;" src="/public/img/404.png">';
             }
+            
+                
 
             // Require the controller
             require_once '../app/controllers/'. $this->currentController . '.php';
@@ -38,6 +43,8 @@
                     $this->currentMethod = $url[2];
                     // Unset 1 index
                     unset($url[2]);
+                } else {
+                    echo '<img style="margin: 0 auto; display:block;" src="/public/img/404.png">';
                 }
             }
 
@@ -45,11 +52,7 @@
             $this->params = $url ? array_values($url) : [];
 
             // Call a callback with array of params
-            if ($this->currentController && method_exists($this->currentController, $this->currentMethod)) {
-                call_user_func_array(array($this->currentController, $this->currentMethod), array( $this->params));
-            } else {
-                echo '<img style="margin: 0 auto; display:block;" src="/public/img/404.png">';
-            }
+            call_user_func_array(array($this->currentController, $this->currentMethod), array( $this->params));
         }
 
         public function getUrl()

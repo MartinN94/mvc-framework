@@ -14,11 +14,13 @@
             <h2>Register</h2>
 
             <form action="/users/register" method="POST">
-                <input type="text" placeholder="Name" name="name">
+                <input type="text" placeholder="Name" name="name"
+                    value="<?php echo isset($_POST["name"]) ? $_POST["name"] : ''; ?>">
                 <span class="invalidFeedback">
                     <?php echo $data['nameError'] ?>
                 </span>
-                <input placeholder="Email" name="email">
+                <input placeholder="Email" name="email"
+                    value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>">
                 <span class="invalidFeedback">
                     <?php echo $data['emailError'] ?>
                 </span>
@@ -31,24 +33,69 @@
                     <?php echo $data['confirmPasswordError'] ?>
                 </span>
                 <select name="skills[]" id="skills" multiple="multiple">
-                    <option value="frontend">Frontend</option>
+                    <option value="frontend" <?php if (in_array("frontend", $_POST["skills"])) {
+    echo 'selected="selected"';
+} ?>>Frontend
+                    </option>
                     <optgroup label="Frontend technologies">
-                        <option value="angular">Angular</option>
-                        <option value="angularjs">AngularJs</option>
-                        <option value="react">React</option>
-                        <option value="react-native">React Native</option>
-                        <option value="vue">Vue</option>
+                        <option value="angular" <?php if (in_array("angular", $_POST["skills"])) {
+    echo 'selected="selected"';
+} ?>>Angular
+                        </option>
+                        <option value="angularjs" <?php if (in_array("angularjs", $_POST["skills"])) {
+    echo 'selected="selected"';
+} ?>>AngularJs
+                        </option>
+                        <option value="react" <?php if (in_array("react", $_POST["skills"])) {
+    echo 'selected="selected"';
+} ?>>React
+                        </option>
+                        <option value="react-native" <?php if (in_array("react-native", $_POST["skills"])) {
+    echo 'selected="selected"';
+} ?>>React Native
+                        </option>
+                        <option value="vue" <?php if (in_array("vue", $_POST["skills"])) {
+    echo 'selected="selected"';
+} ?>>Vue
+                        </option>
                     </optgroup>
-                    <option value="backend">Backend</option>
+                    <option value="backend" <?php if (in_array("backend", $_POST["skills"])) {
+    echo 'selected="selected"';
+} ?>>Backend
+                    </option>
                     <optgroup label="Backend technologies">
-                        <option value="php">PHP</option>
-                        <option value="symfony">Symfony</option>
-                        <option value="silex">Silex</option>
-                        <option value="laravel">Laravel</option>
-                        <option value="lumen">Lumen</option>
-                        <option value="nodejs">NodeJs</option>
-                        <option value="express">Express</option>
-                        <option value="nestjs">NestJs</option>
+                        <option value="php" <?php if (in_array("php", $_POST["skills"])) {
+    echo 'selected="selected"';
+} ?>>PHP
+                        </option>
+                        <option value="symfony" <?php if (in_array("symfony", $_POST["skills"])) {
+    echo 'selected="selected"';
+} ?>>Symfony
+                        </option>
+                        <option value="silex" <?php if (in_array("silex", $_POST["skills"])) {
+    echo 'selected="selected"';
+} ?>>Silex
+                        </option>
+                        <option value="laravel" <?php if (in_array("laravel", $_POST["skills"])) {
+    echo 'selected="selected"';
+} ?>>Laravel
+                        </option>
+                        <option value="lumen" <?php if (in_array("lumen", $_POST["skills"])) {
+    echo 'selected="selected"';
+} ?>>Lumen
+                        </option>
+                        <option value="nodejs" <?php if (in_array("nodejs", $_POST["skills"])) {
+    echo 'selected="selected"';
+} ?>>NodeJs
+                        </option>
+                        <option value="express" <?php if (in_array("express", $_POST["skills"])) {
+    echo 'selected="selected"';
+} ?>>Express
+                        </option>
+                        <option value="nestjs" <?php if (in_array("nestjs", $_POST["skills"])) {
+    echo 'selected="selected"';
+} ?>>NestJs
+                        </option>
                     </optgroup>
                 </select>
                 <span class="invalidFeedback">

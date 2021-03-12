@@ -42,26 +42,6 @@
                     'skillsError' => ''
                 ];
 
-                //Checking user skills and assigning types and subtypes
-                $skills = $_POST['skills'];
-                
-                $data['subtype'] = join(',', array_diff($skills, array('backend', 'frontend')));
-
-                if (in_array("backend", $skills) && in_array("frontend", $skills)) {
-                    $data['type'] = 'backend,frontend';
-                } elseif (in_array("backend", $skills) && !in_array("frontend", $skills)) {
-                    $data['type'] = 'backend';
-                } else {
-                    $data['type'] = 'frontend';
-                }
-
-                //Validate skills
-                if (empty($skills)) {
-                    $data['skillsError'] = 'Please select skills';
-                } elseif (!in_array("backend", $skills) && !in_array("frontend", $skills)) {
-                    $data['skillsError'] = 'Please select Backend or Frontend';
-                }
-
                 // Validate username on letters
                 $nameValidation = "/^[a-zA-Z]*$/";
                 if (empty($data['name'])) {
@@ -101,10 +81,30 @@
                     }
                 }
 
+                //Validate skills
+                if (empty($skills)) {
+                    $data['skillsError'] = 'Please select skills';
+                } elseif (!in_array("backend", $skills) && !in_array("frontend", $skills)) {
+                    $data['skillsError'] = 'Please select Backend or Frontend';
+                }
+
+                //Checking user skills and assigning types and subtypes
+                $skills = $_POST['skills'];
+                
+                $data['subtype'] = join(',', array_diff($skills, array('backend', 'frontend')));
+                
+                if (in_array('backend', $skills) && in_array('frontend', $skills)) {
+                    $data['skillsError'] = 'Not posible to choose Frontend and Backend, select one';
+                } elseif (in_array('backend', $skills)) {
+                    $data['type'] = 'backend';
+                } else {
+                    $data['type'] = 'frontend';
+                }
+
 
 
                 //Check if validation is passed and error fields are empty
-                if (empty($data['nameError']) && empty($data['emailError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])) {
+                if (empty($data['nameError']) && empty($data['emailError']) && empty($data['passwordError']) && empty($data['confirmPasswordError']) && empty($data['skillsError'])) {
                     
                     //Hash password
                     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
